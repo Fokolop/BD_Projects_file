@@ -1,3 +1,3 @@
-select person_order.order_date, concat(person.name, ' (', person.age, ')') as person_information from person_order person_order
-join person on person_order.person_id = person.id
-order by person_order.order_date asc, person_information asc
+select order_date, name || '(' || age || ')' as person_information
+from person_order join person p on p.id = person_order.person_id
+order by person_order.order_date, name;
